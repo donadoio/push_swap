@@ -1,6 +1,8 @@
 NAME = push_swap
 
-SRC = 	main.c
+SRC = 	main.c\
+		stack_utils_a.c\
+		stack_utils_b.c
 
 SRC_MAP = srcs/
 
