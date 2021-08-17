@@ -1,39 +1,119 @@
 #include <push_swap.h>
-#include <libft.h>
 
-int	main(int av, char **argc)
+void	print_list(t_stack *node)
 {
-	ft_putnbr_fd(av, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd(argc[0], 1);
-	ft_putchar_fd('\n', 1);
+	while (node->next != NULL)
+	{
+		ft_putstr_fd("Value: ", 1);
+		ft_putnbr_fd(node->value, 1);
+		ft_putchar_fd('\n', 1);
+		node = node->next;
+	}
+	if (node != NULL)
+	{
+		ft_putstr_fd("Value: ", 1);
+		ft_putnbr_fd(node->value, 1);
+		ft_putchar_fd('\n', 1);
+	}
+	return ;
+}
 
+int	num_check(char **argv, int args)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while (i <= args)
+	{
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			if (ft_isdigit(argv[i][j]) == 0)
+			{
+				ft_putstr_fd("Error\nSome arguements aren't intergers.\n", 1);
+				return (-1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	dup_check(char **argv, int args)
+{
+	int i;
+	int j;
+	size_t len1;
+	size_t len2;
+	size_t len3;
+
+	i = 1;
+	j = i + 1;
+	while (i <= args)
+	{
+		j = i + 1;
+		while (j <= args)
+		{
+			len1 = ft_strlen(argv[i]);
+			len2 = ft_strlen(argv[j]);
+			if (len1 > len2)
+				len3 = len1;
+			else
+				len3 = len2;
+			if (ft_strncmp(argv[i], argv[j], len3) == 0)
+			{
+				ft_putstr_fd("Error\nSome arguements are bigger than an interger.\n", 1);
+				return (-1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	int_check(char **argv, int args)
+{
+	long a;
+	int i;
+
+	i = 1;
+	while (i <= args)
+	{
+		a = ft_atoi_long(argv[i]);
+		if (a > 2147483647 || a < -2147483648)
+		{
+			ft_putstr_fd("Error\nSome arguements are bigger than an interger.\n", 1);
+			return (-1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	int	args;
+	int i;
 	t_stack	*a;
-	t_stack	*b;
 
-	a = stack_new(42);
-	b = stack_new(43);
-
-	stack_add_front(&a, b);
-	ft_putstr_fd("Value of second: ", 1);
-	ft_putnbr_fd(b->next->value, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("Stack size: ", 1);
-	ft_putnbr_fd(stack_size(b), 1);
-	ft_putchar_fd('\n', 1);
-
-	t_stack *c;
-	c = stack_new(55);
-	stack_add_back(&b, c);
-	ft_putstr_fd("Stack size: ", 1);
-	ft_putnbr_fd(stack_size(b), 1);
-	ft_putchar_fd('\n', 1);
-
-	t_stack *last = stack_last(b);
-	ft_putstr_fd("Value of last: ", 1);
-	ft_putnbr_fd(last->value, 1);
-	ft_putchar_fd('\n', 1);
-	stackclear(b);
-
+	args = argc - 1;
+	i = 1;
+	if (argc < 3)
+		return (0);
+	if (num_check(argv, args) == -1 || dup_check(argv, args) == -1 \
+	|| int_check(argv, args) == -1)
+		return (0);
+	a = stack_new(ft_atoi(argv[i]));
+	i++;
+	while (i <= args)
+	{
+		add_to_stack(a, ft_atoi(argv[i]));
+		i++;
+	}
+	print_list(a);
+	stackclear(a);
 	return (0);
 }

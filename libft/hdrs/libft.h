@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/14 18:46:08 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/16 18:31:44 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/17 17:30:11 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ char			*ft_strnstr(const char *haystack, const char *needle, size_t n);
 int				ft_strncmp(const char *str1, const char *str2, size_t n);
 
 int				ft_atoi(const char *num);
+
+long			ft_atoi_long(const char *num);
 
 int				ft_isalpha(int c);
 

@@ -6,13 +6,14 @@
 #    By: idonado <idonado@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:23:24 by idonado       #+#    #+#                  #
-#    Updated: 2021/08/16 18:31:07 by idonado       ########   odam.nl          #
+#    Updated: 2021/08/17 17:27:24 by idonado       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 SRC = 	ft_atoi.c\
+		ft_atoi_long.c\
 		ft_bzero.c\
 		ft_calloc.c\
 		ft_isalnum.c\
