@@ -9,6 +9,7 @@ void	sa(t_stack *node)
 	temp = node->next->value;
 	node->next->value = node->value;
 	node->value = temp;
+	ft_putstr_fd("sa\n", 1);
 	return ;
 }
 
@@ -21,6 +22,7 @@ void	sb(t_stack *node)
 	temp = node->next->value;
 	node->next->value = node->value;
 	node->value = temp;
+	ft_putstr_fd("sb\n", 1);
 	return ;
 }
 
@@ -46,6 +48,7 @@ void	pa(t_stack **node_a, t_stack **node_b)
 	temp2 = (*node_b);
 	(*node_b) = (*node_b)->next;
 	stackdelone(temp2);
+	ft_putstr_fd("pa\n", 1);
 	return ;
 }
 
@@ -71,5 +74,6 @@ void	pb(t_stack **node_a, t_stack **node_b)
 	temp2 = (*node_a);
 	(*node_a) = (*node_a)->next;
 	stackdelone(temp2);
+	ft_putstr_fd("pb\n", 1);
 	return ;
 }

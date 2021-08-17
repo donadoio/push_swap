@@ -1,6 +1,6 @@
 #include <push_swap.h>
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, int rr)
 {
 	int temp;
 
@@ -13,10 +13,12 @@ void	ra(t_stack *a)
 		a = a->next;
 	}
 	a->value = temp;
+	if (rr == 0)
+		ft_putstr_fd("ra\n", 1);
 	return ;
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *b, int rr)
 {
 	int temp;
 
@@ -29,12 +31,15 @@ void	rb(t_stack *b)
 		b = b->next;
 	}
 	b->value = temp;
+	if (rr == 0)
+		ft_putstr_fd("rb\n", 1);
 	return ;
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
-	ra(a);
-	rb(b);
+	ra(a, 1);
+	rb(b, 1);
+	ft_putstr_fd("rr\n", 1);
 	return ;
 }

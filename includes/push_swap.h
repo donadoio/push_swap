@@ -27,11 +27,11 @@ void	sb(t_stack *node);
 void	ss(t_stack *node_a, t_stack *node_b);
 void	pa(t_stack **node_a, t_stack **node_b);
 void	pb(t_stack **node_a, t_stack **node_b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
+void	ra(t_stack *a, int rr);
+void	rb(t_stack *b, int rr);
 void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
+void	rra(t_stack *a, int rrr);
+void	rrb(t_stack *b, int rrr);
 void	rrr(t_stack *a, t_stack *b);
 
 #endif
