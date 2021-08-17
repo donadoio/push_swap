@@ -19,7 +19,13 @@ t_stack	*stack_last(t_stack *stack)
 
 void	stack_add_front(t_stack **list, t_stack *new)
 {
-	new->next = *list;
+	int temp;
+
+	new->next = (*list)->next;
+	temp = (*list)->value;
+	(*list)->value = new->value;
+	(*list)->next = new;
+	new->value = temp;
 	return ;
 }
 

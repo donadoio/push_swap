@@ -17,7 +17,7 @@ void	stack_add_front(t_stack **list, t_stack *new);
 void	stack_add_back(t_stack	**list, t_stack *new);
 int		stack_size(t_stack	*stack);
 void	stackdelone(t_stack *node);
-void	stackclear(t_stack *node);
+void	stackclear(t_stack **node);
 void	stack_iter(t_stack *node, void(*f)(t_stack *));
 void	add_to_stack(t_stack *node, int value);
 
@@ -25,6 +25,13 @@ void	add_to_stack(t_stack *node, int value);
 void	sa(t_stack *node);
 void	sb(t_stack *node);
 void	ss(t_stack *node_a, t_stack *node_b);
-void	pa(t_stack *node_a, t_stack *node_b);
+void	pa(t_stack **node_a, t_stack **node_b);
+void	pb(t_stack **node_a, t_stack **node_b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 #endif

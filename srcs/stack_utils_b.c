@@ -1,18 +1,22 @@
 #include <push_swap.h>
 
-void	stackclear(t_stack *node)
+void	stackclear(t_stack **node)
 {
 	t_stack *temp;
-
-	while (node->next != NULL)
+	if (*node != NULL)
 	{
-		temp = node->next;
-		free(node);
-		node = NULL;
-		node = temp;
+		while ((*node)->next != NULL)
+		{
+			temp = (*node)->next;
+			free(*node);
+			*node = temp;
+		}
 	}
-	if (node != NULL)
-		free(node);
+	if ((*node) != NULL)
+	{
+		free(*node);
+		(*node) = NULL;
+	}
 }
 
 //Must not be used to delete the last item or item inbetween unless it is handled.

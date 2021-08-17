@@ -2,18 +2,21 @@
 
 void	print_list(t_stack *node)
 {
-	while (node->next != NULL)
-	{
-		ft_putstr_fd("Value: ", 1);
-		ft_putnbr_fd(node->value, 1);
-		ft_putchar_fd('\n', 1);
-		node = node->next;
-	}
 	if (node != NULL)
 	{
-		ft_putstr_fd("Value: ", 1);
-		ft_putnbr_fd(node->value, 1);
-		ft_putchar_fd('\n', 1);
+		while (node->next != NULL)
+		{
+			ft_putstr_fd("Value: ", 1);
+			ft_putnbr_fd(node->value, 1);
+			ft_putchar_fd('\n', 1);
+			node = node->next;
+		}
+		if (node != NULL)
+		{
+			ft_putstr_fd("Value: ", 1);
+			ft_putnbr_fd(node->value, 1);
+			ft_putchar_fd('\n', 1);
+		}
 	}
 	return ;
 }
@@ -98,6 +101,7 @@ int	main(int argc, char **argv)
 	int	args;
 	int i;
 	t_stack	*a;
+	t_stack	*b;
 
 	args = argc - 1;
 	i = 1;
@@ -113,7 +117,32 @@ int	main(int argc, char **argv)
 		add_to_stack(a, ft_atoi(argv[i]));
 		i++;
 	}
+	b = NULL;
+	t_stack *new = stack_new(1);
+	stack_add_front(&a, new);
+	//pb(a, b);
+	pb(&a, &b);
+	pb(&a, &b);
+	sa(a);
+	pb(&a, &b);
+	sa(a);
+	sa(a);
+	ra(a);
+	ra(a);
+	ra(a);
+	rr(a, b);
+	rra(a);
+	rra(a);
+	rrr(a, b);
+	pa(&a, &b);
+	pa(&a, &b);
+	pa(&a, &b);
+	rrr(a, b);
+	ft_putstr_fd("Stack a:\n", 1);
 	print_list(a);
-	stackclear(a);
+	ft_putstr_fd("Stack b:\n", 1);
+	print_list(b);
+	stackclear(&a);
+	stackclear(&b);
 	return (0);
 }

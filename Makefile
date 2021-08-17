@@ -3,7 +3,9 @@ NAME = push_swap
 SRC = 	main.c\
 		stack_utils_a.c\
 		stack_utils_b.c\
-		swaps.c
+		swaps_a.c\
+		swaps_b.c\
+		swaps_c.c
 
 SRC_MAP = srcs/
 
