@@ -8,7 +8,9 @@ SRC = 	main.c\
 		swaps_b.c\
 		swaps_c.c\
 		swap_three.c\
-		swap_five.c
+		swap_four.c\
+		swap_five.c\
+		swap_six.c
 
 SRC_MAP = srcs/
 

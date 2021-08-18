@@ -125,8 +125,12 @@ int	main(int argc, char **argv)
 	}
 	else if (stack_size(a) == 3)
 		swap_three(a);
+	else if (stack_size(a) == 4)
+		swap_four(a, b);
 	else if (stack_size(a) == 5)
 		swap_five(a, b);
+	else if (stack_size(a) == 6)
+		swap_six(a, b);
 	printf("Stack A sorted?: %d\n", is_sorted(a));
 	ft_putstr_fd("Stack a:\n", 1);
 	print_list(a);

@@ -39,6 +39,8 @@ void	rrr(t_stack *a, t_stack *b);
 
 //cases
 void	swap_three(t_stack *a);
+void	swap_four(t_stack *a, t_stack *b);
 void	swap_five(t_stack *a, t_stack *b);
+void	swap_six(t_stack *a, t_stack *b);
 
 #endif
