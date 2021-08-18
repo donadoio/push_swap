@@ -20,6 +20,7 @@ void	stackdelone(t_stack *node);
 void	stackclear(t_stack **node);
 void	stack_iter(t_stack *node, void(*f)(t_stack *));
 void	add_to_stack(t_stack *node, int value);
+int		is_sorted(t_stack *node);
 
 //swaps
 void	sa(t_stack *node);
@@ -33,5 +34,8 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a, int rrr);
 void	rrb(t_stack *b, int rrr);
 void	rrr(t_stack *a, t_stack *b);
+
+//cases
+void	swap_three(t_stack *a);
 
 #endif

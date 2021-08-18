@@ -5,7 +5,8 @@ SRC = 	main.c\
 		stack_utils_b.c\
 		swaps_a.c\
 		swaps_b.c\
-		swaps_c.c
+		swaps_c.c\
+		swap_three.c
 
 SRC_MAP = srcs/
 

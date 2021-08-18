@@ -43,3 +43,19 @@ void	add_to_stack(t_stack *node, int value)
 	last->next = new;
 	return ;
 }
+
+int		is_sorted(t_stack *node)
+{
+	if (node != NULL)
+	{
+		while (node->next != NULL)
+		{
+			if (node->value > node->next->value)
+				return (0);
+			node = node->next;
+		}
+	}
+	else
+		return (-1);
+	return (1);
+}

@@ -67,7 +67,7 @@ int	dup_check(char **argv, int args)
 				len3 = len2;
 			if (ft_strncmp(argv[i], argv[j], len3) == 0)
 			{
-				ft_putstr_fd("Error\nSome arguements are bigger than an interger.\n", 1);
+				ft_putstr_fd("Error\nSome arguements are duplicated.\n", 1);
 				return (-1);
 			}
 			j++;
@@ -118,26 +118,14 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	b = NULL;
-	pb(&a, &b);
-	pb(&a, &b);
-	sa(a);
-	pb(&a, &b);
-	sa(a);
-	sa(a);
-	ra(a, 0);
-	ra(a, 0);
-	ra(a, 0);
-	rr(a, b);
-	rra(a, 0);
-	rra(a, 0);
-	rrr(a, b);
-	pa(&a, &b);
-	pa(&a, &b);
-	pa(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	rrr(a, b);
-	pb(&a, &b);
+	if (is_sorted(a) == 1)
+	{
+		stackclear(&a);
+		return (0);
+	}
+	else if (stack_size(a) == 3)
+		swap_three(a);
+	printf("Stack A sorted?: %d\n", is_sorted(a));
 	ft_putstr_fd("Stack a:\n", 1);
 	print_list(a);
 	ft_putstr_fd("Stack b:\n", 1);
