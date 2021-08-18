@@ -27,7 +27,6 @@ void		swap_five(t_stack *a, t_stack *b)
 	sub_swap(a);
 	while (b != NULL)
 	{
-		//printf("%p\n", b);
 		if (is_smallest(a, b->value) == 1)
 			pa(&a, &b);
 		else if (is_biggest(a, b->value))
