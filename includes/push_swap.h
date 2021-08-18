@@ -21,6 +21,8 @@ void	stackclear(t_stack **node);
 void	stack_iter(t_stack *node, void(*f)(t_stack *));
 void	add_to_stack(t_stack *node, int value);
 int		is_sorted(t_stack *node);
+int		is_smallest(t_stack *node, int number);
+int		is_biggest(t_stack *node, int number);
 
 //swaps
 void	sa(t_stack *node);
@@ -37,5 +39,6 @@ void	rrr(t_stack *a, t_stack *b);
 
 //cases
 void	swap_three(t_stack *a);
+void	swap_five(t_stack *a, t_stack *b);
 
 #endif
