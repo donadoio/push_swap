@@ -102,8 +102,7 @@ int	main(int argc, char **argv)
 {
 	int	args;
 	int i;
-	t_stack	*a;
-	t_stack	*b;
+	t_data	*data;
 
 	args = argc - 1;
 	i = 1;
@@ -112,39 +111,40 @@ int	main(int argc, char **argv)
 	if (num_check(argv, args) == -1 || dup_check(argv, args) == -1 \
 	|| int_check(argv, args) == -1)
 		return (0);
-	a = stack_new(ft_atoi(argv[i]));
+	data = malloc(sizeof(t_data));
+	data->a = stack_new(ft_atoi(argv[i]));
 	i++;
 	while (i <= args)
 	{
-		add_to_stack(a, ft_atoi(argv[i]));
+		add_to_stack(data->a, ft_atoi(argv[i]));
 		i++;
 	}
-	b = NULL;
-	if (is_sorted(a) == 1)
+	data->b = NULL;
+	if (is_sorted(data->a) == 1)
 	{
-		stackclear(&a);
+		stackclear(&data->a);
 		return (0);
 	}
-	else if (stack_size(a) == 2)
+	else if (stack_size(data->a) == 2)
 	{
-		sa(a);
-		stackclear(&a);
+		sa(data->a);
+		stackclear(&data->a);
 		return (0);
 	}
-	else if (stack_size(a) == 3)
-		swap_three(a);
-	else if (stack_size(a) == 4)
-		swap_four(a, b);
-	else if (stack_size(a) == 5)
-		swap_five(a, b);
-	else if (stack_size(a) == 6)
-		swap_six(a, b);
-	printf("Stack A sorted?: %d\n", is_sorted(a));
+	else if (stack_size(data->a) == 3)
+		swap_three(data);
+	else if (stack_size(data->a) == 4)
+		swap_four(data);
+	else if (stack_size(data->a) == 5)
+		swap_five(data);
+	else if (stack_size(data->a) == 6)
+		swap_six(data);
+	printf("Stack A sorted?: %d\n", is_sorted(data->a));
 	ft_putstr_fd("Stack a:\n", 1);
-	print_list(a);
+	print_list(data->a);
 	ft_putstr_fd("Stack b:\n", 1);
-	print_list(b);
-	stackclear(&a);
-	stackclear(&b);
+	print_list(data->b);
+	stackclear(&data->a);
+	stackclear(&data->b);
 	return (0);
 }

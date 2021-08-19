@@ -11,6 +11,13 @@ typedef	struct 	s_stack
 	struct s_stack	*next;
 }				t_stack;
 
+typedef	struct	s_data
+{
+	t_stack		*a;
+	t_stack		*b;
+}				t_data;
+
+
 t_stack	*stack_new(int	number);
 t_stack	*stack_last(t_stack *stack);
 void	stack_add_front(t_stack **list, t_stack *new);
@@ -38,9 +45,9 @@ void	rrb(t_stack *b, int rrr);
 void	rrr(t_stack *a, t_stack *b);
 
 //cases
-void	swap_three(t_stack *a);
-void	swap_four(t_stack *a, t_stack *b);
-void	swap_five(t_stack *a, t_stack *b);
-void	swap_six(t_stack *a, t_stack *b);
+void	swap_three(t_data *data);
+void	swap_four(t_data *data);
+void	swap_five(t_data *data);
+void	swap_six(t_data *data);
 
 #endif

@@ -1,37 +1,37 @@
 #include <push_swap.h>
 
-void	swap_three(t_stack *a)
+void	swap_three(t_data *data)
 {
-	if (a->value > a->next->value && a->next->value < a->next->next->value && a->next->next->value > a->value)
+	if (data->a->value > data->a->next->value && data->a->next->value < data->a->next->next->value && data->a->next->next->value > data->a->value)
 	{
-		sa(a);
-		stackclear(&a);
+		sa(data->a);
+		stackclear(&data->a);
 		exit(0);
 	}
-	else if (a->value > a->next->value && a->next->value > a->next->next->value && a->next->next->value < a->value)
+	else if (data->a->value > data->a->next->value && data->a->next->value > data->a->next->next->value && data->a->next->next->value < data->a->value)
 	{
-		sa(a);
-		rra(a, 0);
-		stackclear(&a);
+		sa(data->a);
+		rra(data->a, 0);
+		stackclear(&data->a);
 		exit(0);
 	}
-	else if (a->value > a->next->value && a->next->value < a->next->next->value && a->next->next->value < a->value)
+	else if (data->a->value > data->a->next->value && data->a->next->value < data->a->next->next->value && data->a->next->next->value < data->a->value)
 	{
-		ra(a, 0);
-		stackclear(&a);
+		ra(data->a, 0);
+		stackclear(&data->a);
 		exit(0);
 	}
-	else if (a->value < a->next->value && a->next->value > a->next->next->value && a->next->next->value > a->value)
+	else if (data->a->value < data->a->next->value && data->a->next->value > data->a->next->next->value && data->a->next->next->value > data->a->value)
 	{
-		sa(a);
-		ra(a, 0);
-		stackclear(&a);
+		sa(data->a);
+		ra(data->a, 0);
+		stackclear(&data->a);
 		exit(0);
 	}
-	else if (a->value < a->next->value && a->next->value > a->next->next->value && a->next->next->value < a->value)
+	else if (data->a->value < data->a->next->value && data->a->next->value > data->a->next->next->value && data->a->next->next->value < data->a->value)
 	{
-		rra(a, 0);
-		stackclear(&a);
+		rra(data->a, 0);
+		stackclear(&data->a);
 		exit (0);
 	}
 }

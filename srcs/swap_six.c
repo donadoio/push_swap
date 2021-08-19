@@ -20,50 +20,51 @@ static void	sub_swap(t_stack *a)
 		rra(a, 0);
 }
 
-void		swap_six(t_stack *a, t_stack *b)
+void		swap_six(t_data *data)
 {
-	pb(&a, &b);
-	pb(&a, &b);
-	sub_swap(a);
-	while (b != NULL)
+	pb(&data->a, &data->b);
+	pb(&data->a, &data->b);
+	pb(&data->a, &data->b);
+	sub_swap(data->a);
+	while (data->b != NULL)
 	{
-		if (is_smallest(a, b->value) == 1)
-			pa(&a, &b);
-		else if (is_biggest(a, b->value))
+		if (is_smallest(data->a, data->b->value) == 1)
+			pa(&data->a, &data->b);
+		else if (is_biggest(data->a, data->b->value))
 		{
-			pa(&a, &b);
-			ra(a, 0);
+			pa(&data->a, &data->b);
+			ra(data->a, 0);
 		}
-		else if (b->value > a->value && b->value < a->next->value)
+		else if (data->b->value > data->a->value && data->b->value < data->a->next->value)
 		{
-			ra(a, 0);
-			pa(&a, &b);
-			rra(a, 0);
+			ra(data->a, 0);
+			pa(&data->a, &data->b);
+			rra(data->a, 0);
 		}
-		else if (b->value > a->next->value && b->value < a->next->next->value)
+		else if (data->b->value > data->a->next->value && data->b->value < data->a->next->next->value)
 		{
-			ra(a, 0);
-			ra(a, 0);
-			pa(&a, &b);
-			rra(a, 0);
-			rra(a, 0);
+			ra(data->a, 0);
+			ra(data->a, 0);
+			pa(&data->a, &data->b);
+			rra(data->a, 0);
+			rra(data->a, 0);
 		}
-		else if (b->value > a->next->next->value && b->value < a->next->next->next->value)
+		else if (data->b->value > data->a->next->next->value && data->b->value < data->a->next->next->next->value)
 		{
-			rra(a, 0);
-			pa(&a, &b);
-			ra(a, 0);
-			ra(a, 0);
+			rra(data->a, 0);
+			pa(&data->a, &data->b);
+			ra(data->a, 0);
+			ra(data->a, 0);
 		}
-		else if (b->value > a->next->next->next->value && b->value < a->next->next->next->next->value)
+		else if (data->b->value > data->a->next->next->next->value && data->b->value < data->a->next->next->next->next->value)
 		{
-			rra(a, 0);
-			pa(&a, &b);
-			ra(a, 0);
-			ra(a, 0);
+			rra(data->a, 0);
+			pa(&data->a, &data->b);
+			ra(data->a, 0);
+			ra(data->a, 0);
 		}
 	}
-	stackclear(&a);
+	stackclear(&data->a);
 	exit (0);
 	return ;
 }
