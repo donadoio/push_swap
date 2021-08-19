@@ -32,6 +32,8 @@ int	num_check(char **argv, int args)
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
+			if (j == 0 && argv[i][j] == '-')
+				j++;
 			if (ft_isdigit(argv[i][j]) == 0)
 			{
 				ft_putstr_fd("Error\nSome arguements aren't intergers.\n", 1);
@@ -120,6 +122,12 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (is_sorted(a) == 1)
 	{
+		stackclear(&a);
+		return (0);
+	}
+	else if (stack_size(a) == 2)
+	{
+		sa(a);
 		stackclear(&a);
 		return (0);
 	}
