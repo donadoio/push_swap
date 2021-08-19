@@ -19,18 +19,29 @@ void	stackclear(t_stack **node)
 	}
 }
 
+
 void	stack_iter(t_stack *node, void(*f)(t_stack *))
 {
 	(f)(node);
 	return ;
 }
 
-void	add_to_stack(t_stack *node, int value)
+void	add_to_stack(t_data *data, int value, char *stack)
 {
 	t_stack *last;
 	t_stack	*new;
 
-	last = stack_last(node);
+	last = NULL;
+	if (ft_strncmp("a", stack, 1) == 0)
+	{
+		last = stack_last(data->a);
+		data->a_count++;
+	}
+	else if (ft_strncmp("b", stack, 1) == 0)
+	{
+		last = stack_last(data->b);
+		data->b_count++;
+	}
 	new = stack_new(value);
 	last->next = new;
 	return ;

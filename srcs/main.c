@@ -113,33 +113,38 @@ int	main(int argc, char **argv)
 		return (0);
 	data = malloc(sizeof(t_data));
 	data->a = stack_new(ft_atoi(argv[i]));
+	data->a_count = 1;
 	i++;
 	while (i <= args)
 	{
-		add_to_stack(data->a, ft_atoi(argv[i]));
+		add_to_stack(data, ft_atoi(argv[i]), "a");
 		i++;
 	}
 	data->b = NULL;
+	data->b_count = 0;
 	if (is_sorted(data->a) == 1)
 	{
 		stackclear(&data->a);
 		return (0);
 	}
-	else if (stack_size(data->a) == 2)
+	else if (data->a_count == 2)
 	{
 		sa(data->a);
 		stackclear(&data->a);
 		return (0);
 	}
-	else if (stack_size(data->a) == 3)
+	else if (data->a_count == 3)
 		swap_three(data);
-	else if (stack_size(data->a) == 4)
+	else if (data->a_count == 4)
 		swap_four(data);
-	else if (stack_size(data->a) == 5)
+	else if (data->a_count == 5)
 		swap_five(data);
-	else if (stack_size(data->a) == 6)
+	else if (data->a_count == 6)
 		swap_six(data);
+	
 	printf("Stack A sorted?: %d\n", is_sorted(data->a));
+	pb(&data->a, &data->b, data);
+	printf("Stack A Count: %d\nStack B Count: %d\n", data->a_count, data->b_count);
 	ft_putstr_fd("Stack a:\n", 1);
 	print_list(data->a);
 	ft_putstr_fd("Stack b:\n", 1);

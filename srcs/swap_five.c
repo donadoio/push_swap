@@ -22,36 +22,36 @@ static void	sub_swap(t_stack *a)
 
 void		swap_five(t_data *data)
 {
-	pb(&data->a, &data->b);
-	pb(&data->a, &data->b);
+	pb(&data->a, &data->b, data);
+	pb(&data->a, &data->b, data);
 	sub_swap(data->a);
 	while (data->b != NULL)
 	{
 		if (is_smallest(data->a, data->b->value) == 1)
-			pa(&data->a, &data->b);
+			pa(&data->a, &data->b, data);
 		else if (is_biggest(data->a, data->b->value))
 		{
-			pa(&data->a, &data->b);
+			pa(&data->a, &data->b, data);
 			ra(data->a, 0);
 		}
 		else if (data->b->value > data->a->value && data->b->value < data->a->next->value)
 		{
 			ra(data->a, 0);
-			pa(&data->a, &data->b);
+			pa(&data->a, &data->b, data);
 			rra(data->a, 0);
 		}
 		else if (data->b->value > data->a->next->value && data->b->value < data->a->next->next->value)
 		{
 			ra(data->a, 0);
 			ra(data->a, 0);
-			pa(&data->a, &data->b);
+			pa(&data->a, &data->b, data);
 			rra(data->a, 0);
 			rra(data->a, 0);
 		}
 		else if (data->b->value > data->a->next->next->value && data->b->value < data->a->next->next->next->value)
 		{
 			rra(data->a, 0);
-			pa(&data->a, &data->b);
+			pa(&data->a, &data->b, data);
 			ra(data->a, 0);
 			ra(data->a, 0);
 		}

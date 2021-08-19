@@ -26,7 +26,7 @@ void	sb(t_stack *node)
 	return ;
 }
 
-void	pa(t_stack **node_a, t_stack **node_b)
+void	pa(t_stack **node_a, t_stack **node_b, t_data *data)
 {
 	t_stack *temp;
 	t_stack *temp2;
@@ -47,12 +47,15 @@ void	pa(t_stack **node_a, t_stack **node_b)
 	}
 	temp2 = (*node_b);
 	(*node_b) = (*node_b)->next;
-	stackdelone(temp2);
+	free(temp2);
+	temp2 = NULL;
+	data->a_count++;
+	data->b_count--;
 	ft_putstr_fd("pa\n", 1);
 	return ;
 }
 
-void	pb(t_stack **node_a, t_stack **node_b)
+void	pb(t_stack **node_a, t_stack **node_b, t_data *data)
 {
 	t_stack *temp;
 	t_stack *temp2;
@@ -73,7 +76,10 @@ void	pb(t_stack **node_a, t_stack **node_b)
 	}
 	temp2 = (*node_a);
 	(*node_a) = (*node_a)->next;
-	stackdelone(temp2);
+	free(temp2);
+	temp2 = NULL;
+	data->b_count++;
+	data->a_count--;
 	ft_putstr_fd("pb\n", 1);
 	return ;
 }
