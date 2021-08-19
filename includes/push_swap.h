@@ -20,10 +20,7 @@ typedef	struct	s_data
 
 t_stack	*stack_new(int	number);
 t_stack	*stack_last(t_stack *stack);
-void	stack_add_front(t_stack **list, t_stack *new);
-void	stack_add_back(t_stack	**list, t_stack *new);
 int		stack_size(t_stack	*stack);
-void	stackdelone(t_stack *node);
 void	stackclear(t_stack **node);
 void	stack_iter(t_stack *node, void(*f)(t_stack *));
 void	add_to_stack(t_stack *node, int value);

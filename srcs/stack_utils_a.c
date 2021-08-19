@@ -17,28 +17,6 @@ t_stack	*stack_last(t_stack *stack)
 	return (stack);
 }
 
-void	stack_add_front(t_stack **list, t_stack *new)
-{
-	int temp;
-
-	new->next = (*list)->next;
-	temp = (*list)->value;
-	(*list)->value = new->value;
-	(*list)->next = new;
-	new->value = temp;
-	return ;
-}
-
-void	stack_add_back(t_stack	**list, t_stack *new)
-{
-	t_stack *last;
-
-	last = stack_last(*list);
-	last->next = new;
-	last->next->next = NULL;
-	return ;
-}
-
 int		stack_size(t_stack	*stack)
 {
 	int i;

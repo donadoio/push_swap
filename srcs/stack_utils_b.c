@@ -19,14 +19,6 @@ void	stackclear(t_stack **node)
 	}
 }
 
-//Must not be used to delete the last item or item inbetween unless it is handled.
-//It is only safe to delete the first item of the list.
-void	stackdelone(t_stack *node)
-{
-	free(node);
-	node = NULL;
-}
-
 void	stack_iter(t_stack *node, void(*f)(t_stack *))
 {
 	(f)(node);
