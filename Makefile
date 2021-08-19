@@ -1,6 +1,7 @@
 NAME = push_swap
 
 SRC = 	main.c\
+		print_list.c\
 		stack_utils_a.c\
 		stack_utils_b.c\
 		stack_utils_c.c\

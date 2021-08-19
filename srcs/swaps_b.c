@@ -1,16 +1,19 @@
 #include <push_swap.h>
 
-void	ra(t_stack *a, int rr)
+void	ra(t_stack *a, int rr, t_data *data)
 {
 	int temp;
+	int i;
 
 	if (a == NULL || a->next == NULL)
 		return;
+	i = 0;
 	temp = a->value;
-	while (a->next != NULL)
+	while (i < data->a_count - 1)
 	{
 		a->value = a->next->value;
 		a = a->next;
+		i++;
 	}
 	a->value = temp;
 	if (rr == 0)
@@ -18,17 +21,20 @@ void	ra(t_stack *a, int rr)
 	return ;
 }
 
-void	rb(t_stack *b, int rr)
+void	rb(t_stack *b, int rr, t_data *data)
 {
 	int temp;
+	int i;
 
 	if (b == NULL || b->next == NULL)
 		return;
 	temp = b->value;
-	while (b->next != NULL)
+	i = 0;
+	while (i < data->b_count - 1)
 	{
 		b->value = b->next->value;
 		b = b->next;
+		i++;
 	}
 	b->value = temp;
 	if (rr == 0)
@@ -36,10 +42,10 @@ void	rb(t_stack *b, int rr)
 	return ;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, t_data *data)
 {
-	ra(a, 1);
-	rb(b, 1);
+	ra(a, 1, data);
+	rb(b, 1, data);
 	ft_putstr_fd("rr\n", 1);
 	return ;
 }

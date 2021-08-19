@@ -1,29 +1,30 @@
 #include <push_swap.h>
 
-void	stackclear(t_stack **node)
+void	stackclear(t_stack **node, t_data *data, char *stack)
 {
 	t_stack *temp;
+	int i;
+
+	i = 0;
 	if (*node != NULL)
 	{
-		while ((*node)->next != NULL)
-		{
-			temp = (*node)->next;
-			free(*node);
-			*node = temp;
-		}
+		if (ft_strncmp("a", stack, 1) == 0)
+			while (i < data->a_count)
+			{
+				temp = (*node)->next;
+				free(*node);
+				*node = temp;
+				i++;
+			}
+		else if (ft_strncmp("b", stack, 1) == 0)
+			while (i < data->b_count)
+			{
+				temp = (*node)->next;
+				free(*node);
+				*node = temp;
+				i++;
+			}
 	}
-	if ((*node) != NULL)
-	{
-		free(*node);
-		(*node) = NULL;
-	}
-}
-
-
-void	stack_iter(t_stack *node, void(*f)(t_stack *))
-{
-	(f)(node);
-	return ;
 }
 
 void	add_to_stack(t_data *data, int value, char *stack)
@@ -34,12 +35,12 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	last = NULL;
 	if (ft_strncmp("a", stack, 1) == 0)
 	{
-		last = stack_last(data->a);
+		last = stack_last(data->a, data, stack);
 		data->a_count++;
 	}
 	else if (ft_strncmp("b", stack, 1) == 0)
 	{
-		last = stack_last(data->b);
+		last = stack_last(data->b, data, stack);
 		data->b_count++;
 	}
 	new = stack_new(value);
@@ -47,16 +48,29 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	return ;
 }
 
-int		is_sorted(t_stack *node)
+int		is_sorted(t_stack *node, t_data *data, char *stack)
 {
+	int i;
+
+	i = 0;
 	if (node != NULL)
 	{
-		while (node->next != NULL)
-		{
-			if (node->value > node->next->value)
-				return (0);
-			node = node->next;
-		}
+		if (ft_strncmp("a", stack, 1) == 0)
+			while (i < data->a_count - 1)
+			{
+				if (node->value > node->next->value)
+					return (0);
+				node = node->next;
+				i++;
+			}
+		else if (ft_strncmp("b", stack, 1) == 0)
+			while (i < data->b_count - 1)
+			{
+				if (node->value > node->next->value)
+					return (0);
+				node = node->next;
+				i++;
+			}
 	}
 	else
 		return (-1);

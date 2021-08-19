@@ -1,26 +1,5 @@
 #include <push_swap.h>
 
-void	print_list(t_stack *node)
-{
-	if (node != NULL)
-	{
-		while (node->next != NULL)
-		{
-			ft_putstr_fd("Value: ", 1);
-			ft_putnbr_fd(node->value, 1);
-			ft_putchar_fd('\n', 1);
-			node = node->next;
-		}
-		if (node != NULL)
-		{
-			ft_putstr_fd("Value: ", 1);
-			ft_putnbr_fd(node->value, 1);
-			ft_putchar_fd('\n', 1);
-		}
-	}
-	return ;
-}
-
 int	num_check(char **argv, int args)
 {
 	int i;
@@ -114,23 +93,23 @@ int	main(int argc, char **argv)
 	data = malloc(sizeof(t_data));
 	data->a = stack_new(ft_atoi(argv[i]));
 	data->a_count = 1;
+	data->b = NULL;
+	data->b_count = 0;
 	i++;
 	while (i <= args)
 	{
 		add_to_stack(data, ft_atoi(argv[i]), "a");
 		i++;
 	}
-	data->b = NULL;
-	data->b_count = 0;
-	if (is_sorted(data->a) == 1)
+	if (is_sorted(data->a, data, "a") == 1)
 	{
-		stackclear(&data->a);
+		stackclear(&data->a, data, "a");
 		return (0);
 	}
 	else if (data->a_count == 2)
 	{
 		sa(data->a);
-		stackclear(&data->a);
+		stackclear(&data->a, data, "a");
 		return (0);
 	}
 	else if (data->a_count == 3)
@@ -142,14 +121,14 @@ int	main(int argc, char **argv)
 	else if (data->a_count == 6)
 		swap_six(data);
 	
-	printf("Stack A sorted?: %d\n", is_sorted(data->a));
+	printf("Stack A sorted?: %d\n", is_sorted(data->a, data, "a"));
 	pb(&data->a, &data->b, data);
 	printf("Stack A Count: %d\nStack B Count: %d\n", data->a_count, data->b_count);
 	ft_putstr_fd("Stack a:\n", 1);
-	print_list(data->a);
+	print_list(data->a, data, "a");
 	ft_putstr_fd("Stack b:\n", 1);
-	print_list(data->b);
-	stackclear(&data->a);
-	stackclear(&data->b);
+	print_list(data->b, data, "b");
+	stackclear(&data->a, data, "a");
+	stackclear(&data->b, data, "b");
 	return (0);
 }

@@ -10,26 +10,22 @@ t_stack	*stack_new(int	number)
 	return (new);
 }
 
-t_stack	*stack_last(t_stack *stack)
-{
-	while (stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
-
-int		stack_size(t_stack	*stack)
+t_stack	*stack_last(t_stack *node, t_data *data, char *stack)
 {
 	int i;
 
 	i = 0;
-	if (stack != NULL)
-	{
-		i++;
-		while (stack->next != NULL)
+	if (ft_strncmp(stack, "a", 1) == 0)
+		while (i < data->a_count - 1)
 		{
+			node = node->next;
 			i++;
-			stack = stack->next;
 		}
-	}
-	return (i);
+	else if (ft_strncmp(stack, "b", 1) == 0)
+		while (i < data->b_count - 1)
+		{
+			node = node->next;
+			i++;
+		}
+	return (node);
 }

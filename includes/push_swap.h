@@ -8,7 +8,8 @@
 typedef	struct 	s_stack
 {
 	int				value;
-	struct s_stack	*next;
+	struct	s_stack	*previous;
+	struct	s_stack	*next;
 }				t_stack;
 
 typedef	struct	s_data
@@ -19,16 +20,17 @@ typedef	struct	s_data
 	int			a_count;
 }				t_data;
 
+//temp functions for testing
+void	print_list(t_stack *node, t_data *data, char *stack);
+
 
 t_stack	*stack_new(int	number);
-t_stack	*stack_last(t_stack *stack);
-int		stack_size(t_stack	*stack);
-void	stackclear(t_stack **node);
-void	stack_iter(t_stack *node, void(*f)(t_stack *));
+t_stack	*stack_last(t_stack *node, t_data *data, char *stack);
+void	stackclear(t_stack **node, t_data *data, char *stack);
 void	add_to_stack(t_data *data, int value, char *stack);
-int		is_sorted(t_stack *node);
-int		is_smallest(t_stack *node, int number);
-int		is_biggest(t_stack *node, int number);
+int		is_sorted(t_stack *node, t_data *data, char *stack);
+int		is_smallest(t_stack *node, int number, t_data *data, char *stack);
+int		is_biggest(t_stack *node, int number, t_data *data, char *stack);
 
 //swaps
 void	sa(t_stack *node);
@@ -36,12 +38,12 @@ void	sb(t_stack *node);
 void	ss(t_stack *node_a, t_stack *node_b);
 void	pa(t_stack **node_a, t_stack **node_b, t_data *data);
 void	pb(t_stack **node_a, t_stack **node_b, t_data *data);
-void	ra(t_stack *a, int rr);
-void	rb(t_stack *b, int rr);
-void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a, int rrr);
-void	rrb(t_stack *b, int rrr);
-void	rrr(t_stack *a, t_stack *b);
+void	ra(t_stack *a, int rr, t_data *data);
+void	rb(t_stack *b, int rr, t_data *data);
+void	rr(t_stack *a, t_stack *b, t_data *data);
+void	rra(t_stack *a, int rrr, t_data *data);
+void	rrb(t_stack *b, int rrr, t_data *data);
+void	rrr(t_stack *a, t_stack *b, t_data *data);
 
 //cases
 void	swap_three(t_data *data);
