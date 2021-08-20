@@ -7,6 +7,7 @@ static void	print_a(t_stack *node, t_data *data)
 	int i;
 
 	i = 0;
+	ft_putstr_fd("Stack A: \n", 1);
 	while (i < data->a_count)
 	{
 		ft_putstr_fd("Value: ", 1);
@@ -23,6 +24,7 @@ static void	print_b(t_stack *node, t_data *data)
 	int i;
 
 	i = 0;
+	ft_putstr_fd("Stack B: \n", 1);
 	while (i < data->b_count)
 	{
 		ft_putstr_fd("Value: ", 1);

@@ -37,14 +37,22 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	{
 		last = stack_last(data->a, data, stack);
 		data->a_count++;
+		new = stack_new(value);
+		new->previous = last;
+		last->next = new;
+		data->a->previous = new;
+		new->next = data->a;
 	}
 	else if (ft_strncmp("b", stack, 1) == 0)
 	{
 		last = stack_last(data->b, data, stack);
 		data->b_count++;
+		new = stack_new(value);
+		new->previous = last;
+		last->next = new;
+		data->b->previous = new;
+		new->next = data->b;
 	}
-	new = stack_new(value);
-	last->next = new;
 	return ;
 }
 

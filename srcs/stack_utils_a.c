@@ -6,6 +6,7 @@ t_stack	*stack_new(int	number)
 
 	new = malloc(sizeof(t_stack));
 	new->value = number;
+	new->previous = NULL;
 	new->next = NULL;
 	return (new);
 }

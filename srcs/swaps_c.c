@@ -5,23 +5,24 @@ void	rra(t_stack *a, int rrr, t_data *data)
 	int last;
 	int	current;
 	int	temp;
+	int i;
 
-	if (a == NULL || a->next == NULL)
+	if (a == NULL || a->next == NULL || data->a_count == 0)
 		return;
-	last = (stack_last(a, data, "a"))->value;
+
+	last = a->previous->value;
 	temp = a->value;
 	a->value = last;
+	i = 1;
 	a = a->next;
-	while (a->next != NULL)
+	while (i < data->a_count)
 	{
 		current = a->value;
 		a->value = temp;
 		a = a->next;
 		temp = current;
+		i++;
 	}
-	current = a->value;
-	a->value = temp;
-	temp = current;
 	if (rrr == 0)
 		ft_putstr_fd("rra\n", 1);
 	return ;
@@ -32,23 +33,23 @@ void	rrb(t_stack *b, int rrr, t_data *data)
 	int last;
 	int	current;
 	int	temp;
+	int i;
 
-	if (b == NULL || b->next == NULL)
+	if (b == NULL || b->next == NULL || data->b_count == 0)
 		return;
-	last = (stack_last(b, data, "b"))->value;
+	last = b->previous->value;
 	temp = b->value;
 	b->value = last;
 	b = b->next;
-	while (b->next != NULL)
+	i = 1;
+	while (i < data->b_count)
 	{
 		current = b->value;
 		b->value = temp;
 		b = b->next;
 		temp = current;
+		i++;
 	}
-	current = b->value;
-	b->value = temp;
-	temp = current;
 	if (rrr == 0)
 		ft_putstr_fd("rrb\n", 1);
 	return ;
@@ -58,6 +59,7 @@ void	rrr(t_stack *a, t_stack *b, t_data *data)
 {
 	rra(a, 1, data);
 	rrb(b, 1, data);
-	ft_putstr_fd("rrr\n", 1);
+	if (data->a_count != 0 || data->b_count != 0)
+		ft_putstr_fd("rrr\n", 1);
 	return ;
 }

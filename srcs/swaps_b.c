@@ -26,7 +26,7 @@ void	rb(t_stack *b, int rr, t_data *data)
 	int temp;
 	int i;
 
-	if (b == NULL || b->next == NULL)
+	if (b == NULL || b->next == NULL || data->b_count == 0)
 		return;
 	temp = b->value;
 	i = 0;
@@ -46,6 +46,7 @@ void	rr(t_stack *a, t_stack *b, t_data *data)
 {
 	ra(a, 1, data);
 	rb(b, 1, data);
-	ft_putstr_fd("rr\n", 1);
+	if (data->a_count != 0 || data->b_count != 0)
+		ft_putstr_fd("rr\n", 1);
 	return ;
 }

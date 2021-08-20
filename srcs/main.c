@@ -121,14 +121,11 @@ int	main(int argc, char **argv)
 	else if (data->a_count == 6)
 		swap_six(data);
 	
-	printf("Stack A sorted?: %d\n", is_sorted(data->a, data, "a"));
-	pb(&data->a, &data->b, data);
-	printf("Stack A Count: %d\nStack B Count: %d\n", data->a_count, data->b_count);
-	ft_putstr_fd("Stack a:\n", 1);
+
 	print_list(data->a, data, "a");
-	ft_putstr_fd("Stack b:\n", 1);
-	print_list(data->b, data, "b");
+	swap_large(data);
 	stackclear(&data->a, data, "a");
 	stackclear(&data->b, data, "b");
+	free(data);
 	return (0);
 }

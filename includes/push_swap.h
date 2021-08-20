@@ -12,8 +12,16 @@ typedef	struct 	s_stack
 	struct	s_stack	*next;
 }				t_stack;
 
+typedef	struct	s_chunks
+{
+	int				amount;
+	struct s_chunks	*next;
+}				t_chunks;
+
+
 typedef	struct	s_data
 {
+	t_chunks	*chunks;
 	t_stack		*a;
 	t_stack		*b;
 	int			b_count;
@@ -31,6 +39,7 @@ void	add_to_stack(t_data *data, int value, char *stack);
 int		is_sorted(t_stack *node, t_data *data, char *stack);
 int		is_smallest(t_stack *node, int number, t_data *data, char *stack);
 int		is_biggest(t_stack *node, int number, t_data *data, char *stack);
+int		mid_point(t_stack *node);
 
 //swaps
 void	sa(t_stack *node);
@@ -45,10 +54,15 @@ void	rra(t_stack *a, int rrr, t_data *data);
 void	rrb(t_stack *b, int rrr, t_data *data);
 void	rrr(t_stack *a, t_stack *b, t_data *data);
 
+void	ra_silent(t_stack *a, t_data *data);
+void	pb_silent(t_stack **node_a, t_stack **node_b, t_data *data);
+void	pa_silent(t_stack **node_a, t_stack **node_b, t_data *data);
+
 //cases
 void	swap_three(t_data *data);
 void	swap_four(t_data *data);
 void	swap_five(t_data *data);
 void	swap_six(t_data *data);
+void	swap_large(t_data *data);
 
 #endif
