@@ -1,6 +1,6 @@
 #include <push_swap.h>
 
-t_stack	*stack_new(int	number)
+t_stack	*stack_new(long	number)
 {
 	t_stack	*new;
 

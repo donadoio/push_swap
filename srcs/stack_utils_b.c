@@ -37,7 +37,7 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	{
 		last = stack_last(data->a, data, stack);
 		data->a_count++;
-		new = stack_new(value);
+		new = stack_new((long)value);
 		new->previous = last;
 		last->next = new;
 		data->a->previous = new;

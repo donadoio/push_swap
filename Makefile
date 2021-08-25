@@ -13,8 +13,7 @@ SRC = 	main.c\
 		swap_three.c\
 		swap_four.c\
 		swap_five.c\
-		swap_six.c\
-		swap_large.c
+		swap_hundred.c
 
 SRC_MAP = srcs/
 
@@ -29,20 +28,24 @@ LIBS = libft/libft.a
 all: libft $(NAME)
 
 $(NAME): $(OBJS)
-	clang -o $@ $^  $(LIBS) $(HDRS) -Wall -Werror -Wextra -g -fsanitize=address
+	@clang -o $@ $^  $(LIBS) $(HDRS) -Wall -Werror -Wextra -g -fsanitize=address
+	@echo "\033[1m\033[32mSuccessfully Compiled\033[39m"
 
 %.o: %.c
-	clang -o $@ -c $< $(HDRS)  -Wall -Werror -Wextra -g -fsanitize=address
+	@clang -o $@ -c $< $(HDRS)  -Wall -Werror -Wextra -g -fsanitize=address
 
 libft:
-	$(MAKE) -C libft/ all
+	@$(MAKE) -C libft/ all
 
 clean:
-	$(RM) -f $(OBJS)
-	$(MAKE) -C libft/ fclean
+	@$(RM) $(OBJS)
+	@$(MAKE) -C libft/ clean
+	@echo "\033[1m\033[33mCleaning Object Files\033[39m"
 
 fclean: clean
-	$(RM) -f $(NAME)
+	@$(MAKE) -C libft/ fclean
+	@$(RM) $(NAME)
+	@echo "\033[1m\033[31mPurged Objects and Executables\033[39m"
 
 re: fclean all
 

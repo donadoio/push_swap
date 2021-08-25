@@ -6,7 +6,7 @@
 #    By: idonado <idonado@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:23:24 by idonado       #+#    #+#                  #
-#    Updated: 2021/08/17 17:27:24 by idonado       ########   odam.nl          #
+#    Updated: 2021/08/25 17:26:19 by idonado       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,16 +67,16 @@ FLAGS = -Wall -Werror -Wextra -fPIC
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) rcs $@ $^
+	@$(AR) rcs $@ $^
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(FLAGS)
+	@$(CC) -o $@ -c $< $(FLAGS)
 
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 

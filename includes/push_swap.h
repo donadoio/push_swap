@@ -7,7 +7,7 @@
 
 typedef	struct 	s_stack
 {
-	int				value;
+	long	value;
 	struct	s_stack	*previous;
 	struct	s_stack	*next;
 }				t_stack;
@@ -26,13 +26,14 @@ typedef	struct	s_data
 	t_stack		*b;
 	int			b_count;
 	int			a_count;
+	int			chunk_count;
 }				t_data;
 
 //temp functions for testing
 void	print_list(t_stack *node, t_data *data, char *stack);
 
 
-t_stack	*stack_new(int	number);
+t_stack	*stack_new(long	number);
 t_stack	*stack_last(t_stack *node, t_data *data, char *stack);
 void	stackclear(t_stack **node, t_data *data, char *stack);
 void	add_to_stack(t_data *data, int value, char *stack);
@@ -62,7 +63,6 @@ void	pa_silent(t_stack **node_a, t_stack **node_b, t_data *data);
 void	swap_three(t_data *data);
 void	swap_four(t_data *data);
 void	swap_five(t_data *data);
-void	swap_six(t_data *data);
-void	swap_large(t_data *data);
+void	swap_hundred(t_data *data);
 
 #endif

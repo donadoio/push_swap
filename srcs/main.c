@@ -77,6 +77,68 @@ int	int_check(char **argv, int args)
 	return (0);
 }
 
+static int	find_minimum(t_data *data)
+{
+	int	i;
+	t_stack	*temp;
+	long	least;
+
+	i = 0;
+	least = 0;
+	temp = data->a;
+	while (i < data->a_count)
+	{
+		if (temp->value < least)
+			least = temp->value;
+		i++;
+		temp = temp->next;
+	}
+	return (least);
+}
+
+static void	add_least(t_data *data, long least)
+{
+	int i;
+	t_stack	*temp;
+
+	i = 0;
+	temp = data->a;
+	while (i < data->a_count)
+	{
+		temp->value = temp->value + least;
+		temp = temp->next;
+		i++;
+	}
+	return ;
+}
+
+static void	negative_proof(t_data *data)
+{
+	int	i;
+	t_stack	*temp;
+	int	negative;
+	long	least;
+
+	i = 0;
+	negative = 0;
+	least = 0;
+	temp = data->a;
+	while (i < data->a_count && negative == 0)
+	{
+		if (temp->value < 0)
+			negative = 1;
+		i++;
+		temp = temp->next;
+	}
+	if (negative == 1)
+	{
+		least = find_minimum(data);
+		least = least * -1;
+		add_least(data, least);
+	}
+	return ;
+}
+
 int	main(int argc, char **argv)
 {
 	int	args;
@@ -101,6 +163,7 @@ int	main(int argc, char **argv)
 		add_to_stack(data, ft_atoi(argv[i]), "a");
 		i++;
 	}
+	negative_proof(data);
 	if (is_sorted(data->a, data, "a") == 1)
 	{
 		stackclear(&data->a, data, "a");
@@ -118,12 +181,10 @@ int	main(int argc, char **argv)
 		swap_four(data);
 	else if (data->a_count == 5)
 		swap_five(data);
-	else if (data->a_count == 6)
-		swap_six(data);
-	
-
-	print_list(data->a, data, "a");
-	swap_large(data);
+	else if (data->a_count > 5 && data->a_count <= 100)
+		swap_hundred(data);
+	//else
+	//	swap_large(data);
 	stackclear(&data->a, data, "a");
 	stackclear(&data->b, data, "b");
 	free(data);
