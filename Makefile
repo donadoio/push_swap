@@ -24,6 +24,8 @@ SRCS = $(addprefix $(SRC_MAP), $(SRC))
 
 HDRS = -I includes/ -I libft/hdrs
 
+FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+
 OBJS=$(SRCS:.c=.o)
 
 LIBS = libft/libft.a
@@ -31,11 +33,11 @@ LIBS = libft/libft.a
 all: libft $(NAME)
 
 $(NAME): $(OBJS)
-	@clang -o $@ $^  $(LIBS) $(HDRS) -Wall -Werror -Wextra -g -fsanitize=address
+	@clang -o $@ $^  $(LIBS) $(HDRS) $(FLAGS)
 	@echo "\033[1m\033[32mSuccessfully Compiled\033[39m"
 
 %.o: %.c
-	@clang -o $@ -c $< $(HDRS)  -Wall -Werror -Wextra -g -fsanitize=address
+	@clang -o $@ -c $< $(HDRS) $(FLAGS)
 
 libft:
 	@$(MAKE) -C libft/ all
