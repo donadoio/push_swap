@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 16:57:14 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:02:31 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:59:56 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	pa_condition_a(t_stack **node_a, \
 t_stack **node_b, t_data *data, t_stack **temp)
 {
-	(*temp) = stack_new((*node_a)->value);
+	(*temp) = stack_new((*node_a)->value, data);
 	(*temp)->next = (*node_a)->next;
 	(*temp)->next->previous = (*temp);
 	(*node_a)->value = (*node_b)->value;
@@ -27,7 +27,7 @@ t_stack **node_b, t_data *data, t_stack **temp)
 static void	pa_condition_b(t_stack **node_a, \
 t_stack **node_b, t_data *data, t_stack **temp)
 {
-	(*temp) = stack_new((*node_b)->value);
+	(*temp) = stack_new((*node_b)->value, data);
 	*node_a = (*temp);
 	(*temp)->previous = (*temp);
 	(*temp)->next = (*temp);
