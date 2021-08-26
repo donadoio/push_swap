@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:10:15 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:23:29 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:39:48 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ static void	run_push_swap(t_data *data)
 	return ;
 }
 
+static t_data	*malloc_protect(t_data *data)
+{
+	if (data == NULL)
+		exit (-1);
+	else
+		return (data);
+}
+
 int	main(int argc, char **argv)
 {
 	int		args;
@@ -88,7 +96,7 @@ int	main(int argc, char **argv)
 	if (num_check(argv, args) == -1 || dup_check(argv, args) == -1 \
 	|| int_check(argv, args) == -1)
 		return (0);
-	data = malloc(sizeof(t_data));
+	data = malloc_protect(malloc(sizeof(t_data)));
 	data->a = stack_new(ft_atoi(argv[i]));
 	data->a_count = 1;
 	data->b = NULL;
