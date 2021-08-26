@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:19:29 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:22:25 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:52:48 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ typedef struct s_data
 int			num_check(char **argv, int args);
 int			dup_check(char **argv, int args);
 int			int_check(char **argv, int args);
+t_stack		*sub_malloc_protect(t_stack *stack, t_data *data);
 void		add_least(t_data *data, long least);
 int			find_minimum(t_data *data);
-t_stack		*stack_new(long	number);
+t_stack		*stack_new(long	number, t_data *data);
 t_stack		*stack_last(t_stack *node, t_data *data, char *stack);
 void		stackclear(t_stack **node, t_data *data, char *stack);
 void		add_to_stack(t_data *data, int value, char *stack);

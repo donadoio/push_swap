@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:04:51 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:14:30 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:54:38 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,17 @@ are bigger than an interger.\n", 1);
 		i++;
 	}
 	return (0);
+}
+
+t_stack	*sub_malloc_protect(t_stack *stack, t_data *data)
+{
+	if (stack == NULL)
+	{
+		stackclear(&data->a, data, "a");
+		stackclear(&data->b, data, "b");
+		free(data);
+		exit(-1);
+	}
+	else
+		return (stack);
 }

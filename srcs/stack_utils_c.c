@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 16:59:34 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:10:25 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:52:21 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int	is_biggest(t_stack *node, int number, t_data *data, char *stack)
 	return (1);
 }
 
-t_stack	*stack_new(long	number)
+t_stack	*stack_new(long	number, t_data *data)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof(t_stack));
+	new = sub_malloc_protect(malloc(sizeof(t_stack)), data);
 	new->value = number;
 	new->previous = NULL;
 	new->next = NULL;

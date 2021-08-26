@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:02:12 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:08:51 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:53:20 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	{
 		last = stack_last(data->a, data, stack);
 		data->a_count++;
-		new = stack_new((long)value);
+		new = stack_new((long)value, data);
 		new->previous = last;
 		last->next = new;
 		data->a->previous = new;
@@ -60,7 +60,7 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	{
 		last = stack_last(data->b, data, stack);
 		data->b_count++;
-		new = stack_new(value);
+		new = stack_new(value, data);
 		new->previous = last;
 		last->next = new;
 		data->b->previous = new;

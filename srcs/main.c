@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:10:15 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:39:48 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:52:32 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	main(int argc, char **argv)
 	|| int_check(argv, args) == -1)
 		return (0);
 	data = malloc_protect(malloc(sizeof(t_data)));
-	data->a = stack_new(ft_atoi(argv[i]));
+	data->a = stack_new(ft_atoi(argv[i]), data);
 	data->a_count = 1;
 	data->b = NULL;
 	data->b_count = 0;
