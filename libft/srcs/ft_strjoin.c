@@ -6,14 +6,14 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 18:06:27 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/05 16:23:06 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/21 18:01:48 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../hdrs/libft.h"
 
-char			*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	size_t	length;

@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 17:58:21 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/09 16:19:43 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/21 18:05:03 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	len_s = ft_strlen(s);
-	if (start >= ft_strlen((char*)s))
+	if (start >= ft_strlen((char *)s))
 		return (ft_strdup(""));
 	if (len_s - start < len)
 		len = len_s - start;
-	result = (char*)malloc(sizeof(char) * len + 1);
+	result = (char *)malloc(sizeof(char) * len + 1);
 	if (result == NULL)
 		return (NULL);
 	ft_strlcpy(result, s + start, len + 1);

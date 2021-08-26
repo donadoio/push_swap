@@ -6,7 +6,7 @@
 #    By: idonado <idonado@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:23:24 by idonado       #+#    #+#                  #
-#    Updated: 2021/08/25 17:26:19 by idonado       ########   odam.nl          #
+#    Updated: 2021/08/26 17:27:24 by idonado       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRC = 	ft_atoi.c\
 		ft_strtrim.c\
 		ft_substr.c\
 		ft_tolower.c\
-		ft_toupper.c
+		ft_toupper.c\
 
 GNL_SRC = get_next_line_utils.c get_next_line.c
 

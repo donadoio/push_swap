@@ -1,15 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   swaps_c.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: idonado <idonado@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/08/26 17:15:01 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/26 17:15:52 by idonado       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 
 void	rra(t_stack *a, int rrr, t_data *data)
 {
-	int last;
+	int	last;
 	int	current;
 	int	temp;
-	int i;
+	int	i;
 
 	if (a == NULL || a->next == NULL || data->a_count == 0)
-		return;
-
+		return ;
 	last = a->previous->value;
 	temp = a->value;
 	a->value = last;
@@ -30,13 +41,13 @@ void	rra(t_stack *a, int rrr, t_data *data)
 
 void	rrb(t_stack *b, int rrr, t_data *data)
 {
-	int last;
+	int	last;
 	int	current;
 	int	temp;
-	int i;
+	int	i;
 
 	if (b == NULL || b->next == NULL || data->b_count == 0)
-		return;
+		return ;
 	last = b->previous->value;
 	temp = b->value;
 	b->value = last;

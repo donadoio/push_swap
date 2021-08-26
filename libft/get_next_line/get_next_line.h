@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/16 14:42:21 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/05 23:30:21 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 17:25:57 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h>
+# include <stdio.h> //remove when submitting and change FOPENMAX to OPENMAX
 # include "../hdrs/libft.h"
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32

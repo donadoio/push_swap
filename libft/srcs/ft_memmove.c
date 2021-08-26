@@ -5,38 +5,44 @@
 /*                                                     +:+                    */
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/06 20:54:40 by idonado        #+#    #+#                */
-/*   Updated: 2019/12/02 16:11:26 by idonado       ########   odam.nl         */
+/*   Created: 2019/11/06 20:54:40 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/21 20:38:57 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+static char	*copy(char *tdst, char *tsrc, int counter, size_t len)
+{
+	while (counter < (int)len)
+	{
+		tdst[counter] = tsrc[counter];
+		counter++;
+	}
+	return (tdst);
+}
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*dstcpy;
-	char	*srccpy;
-	int		i;
+	char	*tdst;
+	char	*tsrc;
+	int		counter;
 
-	if (!dst && !src)
+	tdst = (char *)dst;
+	tsrc = (char *)src;
+	counter = 0;
+	if (dst == NULL && src == NULL)
 		return (NULL);
-	i = 0;
-	dstcpy = (char*)dst;
-	srccpy = (char*)src;
 	if (dst < src)
-		while (i < (int)len)
-		{
-			dstcpy[i] = srccpy[i];
-			i++;
-		}
+		tdst = copy(tdst, tsrc, counter, len);
 	else
 	{
-		i = (int)len;
-		while (i != 0)
+		counter = (int)len;
+		while (counter != 0)
 		{
-			dstcpy[i - 1] = srccpy[i - 1];
-			i--;
+			tdst[counter - 1] = tsrc[counter - 1];
+			counter--;
 		}
 	}
-	return (dstcpy);
+	return (tdst);
 }

@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/09 19:38:41 by idonado        #+#    #+#                */
-/*   Updated: 2019/11/22 21:18:54 by idonado       ########   odam.nl         */
+/*   Created: 2019/11/09 19:38:41 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/21 18:01:30 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	size_t	wrds(char const *s, char c)
 {
-	size_t words;
+	size_t	words;
 
 	words = 0;
 	while (*s)
@@ -33,14 +33,14 @@ static	size_t	wrds(char const *s, char c)
 	return (words);
 }
 
-static	char	*get_split(char const *(*s), char c)
+static	char	*get_split(char const **s, char c)
 {
 	size_t	spaces;
 	size_t	i;
 	char	*result;
 	char	*str;
 
-	str = (char*)*s;
+	str = (char *)*s;
 	spaces = 0;
 	i = 0;
 	while (*str && *str == c)
@@ -63,7 +63,7 @@ static	char	*get_split(char const *(*s), char c)
 
 static	void	free_memory(char ***result)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while ((*result)[i])
@@ -74,7 +74,7 @@ static	void	free_memory(char ***result)
 	free(*result);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -85,7 +85,7 @@ char			**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = wrds(s, c);
-	result = malloc(sizeof(char*) * (words + 1));
+	result = malloc(sizeof(char *) * (words + 1));
 	if (result == NULL)
 		return (NULL);
 	while (i < words)
@@ -98,6 +98,6 @@ char			**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	result[i] = (char*)NULL;
+	result[i] = (char *) NULL;
 	return (result);
 }

@@ -6,13 +6,13 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/11 16:44:06 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/05 16:22:50 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/21 17:59:06 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/libft.h"
 
-void			ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n <= -2147483648)
 	{

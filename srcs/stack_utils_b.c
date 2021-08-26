@@ -1,14 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   stack_utils_b.c                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: idonado <idonado@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/08/26 17:02:12 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/26 17:04:05 by idonado       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 
 void	stackclear(t_stack **node, t_data *data, char *stack)
 {
-	t_stack *temp;
-	int i;
+	t_stack	*temp;
+	int		i;
 
 	i = 0;
 	if (*node != NULL)
 	{
 		if (ft_strncmp("a", stack, 1) == 0)
+		{
 			while (i < data->a_count)
 			{
 				temp = (*node)->next;
@@ -16,7 +29,9 @@ void	stackclear(t_stack **node, t_data *data, char *stack)
 				*node = temp;
 				i++;
 			}
+		}
 		else if (ft_strncmp("b", stack, 1) == 0)
+		{
 			while (i < data->b_count)
 			{
 				temp = (*node)->next;
@@ -24,12 +39,13 @@ void	stackclear(t_stack **node, t_data *data, char *stack)
 				*node = temp;
 				i++;
 			}
+		}
 	}
 }
 
 void	add_to_stack(t_data *data, int value, char *stack)
 {
-	t_stack *last;
+	t_stack	*last;
 	t_stack	*new;
 
 	last = NULL;
@@ -56,14 +72,15 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	return ;
 }
 
-int		is_sorted(t_stack *node, t_data *data, char *stack)
+int	is_sorted(t_stack *node, t_data *data, char *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (node != NULL)
 	{
 		if (ft_strncmp("a", stack, 1) == 0)
+		{
 			while (i < data->a_count - 1)
 			{
 				if (node->value > node->next->value)
@@ -71,7 +88,9 @@ int		is_sorted(t_stack *node, t_data *data, char *stack)
 				node = node->next;
 				i++;
 			}
+		}
 		else if (ft_strncmp("b", stack, 1) == 0)
+		{
 			while (i < data->b_count - 1)
 			{
 				if (node->value > node->next->value)
@@ -79,6 +98,7 @@ int		is_sorted(t_stack *node, t_data *data, char *stack)
 				node = node->next;
 				i++;
 			}
+		}
 	}
 	else
 		return (-1);

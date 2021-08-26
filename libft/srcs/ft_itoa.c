@@ -6,14 +6,14 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/12 15:54:44 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/05 16:22:00 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/21 17:57:42 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../hdrs/libft.h"
 
-static	int		ft_itoa_spaces(int n)
+static	int	ft_itoa_spaces(int n)
 {
 	if ((n / 1000000000) >= 1)
 		return (10);
@@ -39,7 +39,7 @@ static	int		ft_itoa_spaces(int n)
 
 static	char	ft_itoa_op(int *n)
 {
-	char c;
+	char	c;
 
 	c = (*n % 10) + '0';
 	*n = *n / 10;
@@ -51,7 +51,7 @@ static	char	*ft_itoa_process_negative(int n, int spaces)
 	char	*result;
 	int		space_t;
 
-	result = (char*)malloc(sizeof(char) * (spaces + 1));
+	result = (char *)malloc(sizeof(char) * (spaces + 1));
 	if (result == NULL)
 		return (NULL);
 	result[0] = '-';
@@ -72,7 +72,7 @@ static	char	*ft_itoa_process_positive(int n, int spaces)
 	char	*result;
 	int		space_t;
 
-	result = (char*)malloc(sizeof(char) * (spaces + 1));
+	result = (char *) malloc(sizeof(char) * (spaces + 1));
 	if (result == NULL)
 		return (NULL);
 	space_t = spaces - 1;
@@ -87,7 +87,7 @@ static	char	*ft_itoa_process_positive(int n, int spaces)
 	return (result);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		spaces;
 	int		temp;

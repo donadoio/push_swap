@@ -1,9 +1,6 @@
 NAME = push_swap
 
 SRC = 	main.c\
-		print_list.c\
-		mid_point.c\
-		mid_point_utils.c\
 		stack_utils_a.c\
 		stack_utils_b.c\
 		stack_utils_c.c\
@@ -13,7 +10,11 @@ SRC = 	main.c\
 		swap_three.c\
 		swap_four.c\
 		swap_five.c\
-		swap_hundred.c
+		swap_hundred.c\
+		swap_five_hundred.c\
+		swap_large_a.c\
+		swap_large_b.c\
+		swap_large_c.c
 
 SRC_MAP = srcs/
 

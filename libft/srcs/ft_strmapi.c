@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/12 21:25:15 by idonado        #+#    #+#                */
-/*   Updated: 2019/11/22 17:08:18 by idonado       ########   odam.nl         */
+/*   Created: 2019/11/12 21:25:15 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/21 18:02:27 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	while (s[i] != '\0')
 		i++;
-	s1 = (char*)malloc((sizeof(char) * i) + 1);
+	s1 = (char *)malloc((sizeof(char) * i) + 1);
 	if (s1 == NULL)
 		return (NULL);
 	i = 0;

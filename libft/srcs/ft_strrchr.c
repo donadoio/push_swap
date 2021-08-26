@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 16:25:14 by idonado        #+#    #+#                */
-/*   Updated: 2019/11/19 21:25:08 by idonado       ########   odam.nl         */
+/*   Created: 2019/11/04 16:25:14 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/21 18:03:52 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')

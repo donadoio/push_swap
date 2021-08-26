@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   swaps_a.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: idonado <idonado@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/08/26 16:57:14 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/26 17:07:46 by idonado       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 
 void	sa(t_stack *node)
 {
-	int temp;
+	int	temp;
 
 	if (node == NULL || node->next == NULL)
 		return ;
@@ -15,7 +27,7 @@ void	sa(t_stack *node)
 
 void	sb(t_stack *node)
 {
-	int temp;
+	int	temp;
 
 	if (node == NULL || node->next == NULL)
 		return ;
@@ -28,7 +40,7 @@ void	sb(t_stack *node)
 
 void	pa(t_stack **node_a, t_stack **node_b, t_data *data)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	t_stack	*temp2;
 
 	if (*node_b == NULL || data->b_count == 0)
@@ -77,7 +89,7 @@ void	pa(t_stack **node_a, t_stack **node_b, t_data *data)
 
 void	pb(t_stack **node_a, t_stack **node_b, t_data *data)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	t_stack	*temp2;
 
 	if (*node_a == NULL || data->a_count == 0)

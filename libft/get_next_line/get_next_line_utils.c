@@ -6,28 +6,18 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/22 14:31:10 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/05 23:30:00 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/21 18:26:59 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/*
-free_and_return_null
-----------------------------------
-This function is basically only to be used on this project within the customized version of ft_strjoin()
-*/
+
 char	*free_and_return_null(char *s)
 {
 	free(s);
 	return (NULL);
 }
 
-/*
-ft_strjoin
-----------------------------------
-This standard library function is commented because it is not the same ft_strjoin used on my library in the libft repo.
-It is less safe yet and optimized and customized for this function's purpose and should not be copied exactly as is onto any other function.
-*/
 char	*ft_strjoin_mod(char *s1, char *s2, size_t i, size_t j)
 {
 	char	*temp;

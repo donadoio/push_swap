@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   swaps_b.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: idonado <idonado@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/08/26 17:06:26 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/26 17:06:49 by idonado       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 
 void	ra(t_stack *a, int rr, t_data *data)
 {
-	int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	if (a == NULL || a->next == NULL)
-		return;
+		return ;
 	i = 0;
 	temp = a->value;
 	while (i < data->a_count - 1)
@@ -23,11 +35,11 @@ void	ra(t_stack *a, int rr, t_data *data)
 
 void	rb(t_stack *b, int rr, t_data *data)
 {
-	int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	if (b == NULL || b->next == NULL || data->b_count == 0)
-		return;
+		return ;
 	temp = b->value;
 	i = 0;
 	while (i < data->b_count - 1)

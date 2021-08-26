@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/13 19:40:39 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/05 16:23:09 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/21 18:01:59 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t dstlen;
-	size_t srclen;
+	size_t	dstlen;
+	size_t	srclen;
 
 	dstlen = ft_strlen(dst);
 	srclen = ft_strlen(src);

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: idonado <idonado@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/08/26 17:10:15 by idonado       #+#    #+#                 */
+/*   Updated: 2021/08/26 17:13:17 by idonado       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 
 int	num_check(char **argv, int args)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i <= args)
@@ -27,11 +39,11 @@ int	num_check(char **argv, int args)
 
 int	dup_check(char **argv, int args)
 {
-	int i;
-	int j;
-	size_t len1;
-	size_t len2;
-	size_t len3;
+	int		i;
+	int		j;
+	size_t	len1;
+	size_t	len2;
+	size_t	len3;
 
 	i = 1;
 	j = i + 1;
@@ -60,8 +72,8 @@ int	dup_check(char **argv, int args)
 
 int	int_check(char **argv, int args)
 {
-	long a;
-	int i;
+	long	a;
+	int		i;
 
 	i = 1;
 	while (i <= args)
@@ -69,7 +81,8 @@ int	int_check(char **argv, int args)
 		a = ft_atoi_long(argv[i]);
 		if (a > 2147483647 || a < -2147483648)
 		{
-			ft_putstr_fd("Error\nSome arguements are bigger than an interger.\n", 1);
+			ft_putstr_fd("Error\nSome arguements \
+are bigger than an interger.\n", 1);
 			return (-1);
 		}
 		i++;
@@ -79,7 +92,7 @@ int	int_check(char **argv, int args)
 
 static int	find_minimum(t_data *data)
 {
-	int	i;
+	int		i;
 	t_stack	*temp;
 	long	least;
 
@@ -98,7 +111,7 @@ static int	find_minimum(t_data *data)
 
 static void	add_least(t_data *data, long least)
 {
-	int i;
+	int		i;
 	t_stack	*temp;
 
 	i = 0;
@@ -114,9 +127,9 @@ static void	add_least(t_data *data, long least)
 
 static void	negative_proof(t_data *data)
 {
-	int	i;
+	int		i;
 	t_stack	*temp;
-	int	negative;
+	int		negative;
 	long	least;
 
 	i = 0;
@@ -141,8 +154,8 @@ static void	negative_proof(t_data *data)
 
 int	main(int argc, char **argv)
 {
-	int	args;
-	int i;
+	int		args;
+	int		i;
 	t_data	*data;
 
 	args = argc - 1;
@@ -183,8 +196,8 @@ int	main(int argc, char **argv)
 		swap_five(data);
 	else if (data->a_count > 5 && data->a_count <= 100)
 		swap_hundred(data);
-	//else
-	//	swap_large(data);
+	else if (data->a_count > 100)
+		swap_five_hundred(data);
 	stackclear(&data->a, data, "a");
 	stackclear(&data->b, data, "b");
 	free(data);
