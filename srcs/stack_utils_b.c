@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:02:12 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 17:04:05 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:08:51 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,27 @@
 
 void	stackclear(t_stack **node, t_data *data, char *stack)
 {
-	t_stack	*temp;
-	int		i;
-
-	i = 0;
+	data->i = 0;
 	if (*node != NULL)
 	{
 		if (ft_strncmp("a", stack, 1) == 0)
 		{
-			while (i < data->a_count)
+			while (data->i < data->a_count)
 			{
-				temp = (*node)->next;
+				data->temp = (*node)->next;
 				free(*node);
-				*node = temp;
-				i++;
+				*node = data->temp;
+				data->i++;
 			}
 		}
 		else if (ft_strncmp("b", stack, 1) == 0)
 		{
-			while (i < data->b_count)
+			while (data->i < data->b_count)
 			{
-				temp = (*node)->next;
+				data->temp = (*node)->next;
 				free(*node);
-				*node = temp;
-				i++;
+				*node = data->temp;
+				data->i++;
 			}
 		}
 	}
@@ -72,31 +69,39 @@ void	add_to_stack(t_data *data, int value, char *stack)
 	return ;
 }
 
+static void	is_sorted_a(t_stack **node, t_data *data)
+{
+	(*node) = (*node)->next;
+	data->i++;
+}
+
+static void	is_sorted_b(t_stack **node, t_data *data)
+{
+	(*node) = (*node)->next;
+	data->i++;
+}
+
 int	is_sorted(t_stack *node, t_data *data, char *stack)
 {
-	int	i;
-
-	i = 0;
+	data->i = 0;
 	if (node != NULL)
 	{
 		if (ft_strncmp("a", stack, 1) == 0)
 		{
-			while (i < data->a_count - 1)
+			while (data->i < data->a_count - 1)
 			{
 				if (node->value > node->next->value)
 					return (0);
-				node = node->next;
-				i++;
+				is_sorted_a(&node, data);
 			}
 		}
 		else if (ft_strncmp("b", stack, 1) == 0)
 		{
-			while (i < data->b_count - 1)
+			while (data->i < data->b_count - 1)
 			{
 				if (node->value > node->next->value)
 					return (0);
-				node = node->next;
-				i++;
+				is_sorted_b(&node, data);
 			}
 		}
 	}

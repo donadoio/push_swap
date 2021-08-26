@@ -7,6 +7,8 @@ SRC = 	main.c\
 		swaps_a.c\
 		swaps_b.c\
 		swaps_c.c\
+		swaps_d.c\
+		swaps_e.c\
 		swap_three.c\
 		swap_four.c\
 		swap_five.c\

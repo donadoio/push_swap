@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:19:29 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 17:22:42 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:22:25 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 # include <stdlib.h>
 # include <libft.h>
 
+typedef struct s_dup_check
+{
+	int		i;
+	int		j;
+	size_t	len1;
+	size_t	len2;
+	size_t	len3;
+}				t_dup_check;
 typedef struct s_stack
 {
 	long			value;
@@ -31,6 +39,8 @@ typedef struct s_data
 	t_chunks	*chunks;
 	t_stack		*a;
 	t_stack		*b;
+	t_stack		*temp;
+	int			i;
 	int			b_count;
 	int			a_count;
 	int			chunk_count;
@@ -42,6 +52,11 @@ typedef struct s_data
 	int			moves;
 	int			amount_copy;
 }				t_data;
+int			num_check(char **argv, int args);
+int			dup_check(char **argv, int args);
+int			int_check(char **argv, int args);
+void		add_least(t_data *data, long least);
+int			find_minimum(t_data *data);
 t_stack		*stack_new(long	number);
 t_stack		*stack_last(t_stack *node, t_data *data, char *stack);
 void		stackclear(t_stack **node, t_data *data, char *stack);

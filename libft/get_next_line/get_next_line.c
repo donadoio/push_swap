@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/22 14:30:22 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 17:25:24 by idonado       ########   odam.nl         */
+/*   Updated: 2021/08/26 19:26:27 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	get_next_line(int fd, char **line)
 	int			is_buffer;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0 || \
-	line == NULL || fd > FOPEN_MAX)
+	line == NULL || fd > OPEN_MAX)
 		return (-1);
 	*line = ft_strdup("");
 	if (*line == NULL)
