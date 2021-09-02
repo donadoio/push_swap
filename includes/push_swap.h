@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:19:29 by idonado       #+#    #+#                 */
-/*   Updated: 2021/09/01 22:48:59 by idonado       ########   odam.nl         */
+/*   Updated: 2021/09/02 13:23:15 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_data
 	int			moves;
 	int			amount_copy;
 	int			first_rotate;
-	int			lowest_sorted;
+	long		lowest_sorted;
 }				t_data;
 int			num_check(char **argv, int args);
 int			dup_check(char **argv, int args);

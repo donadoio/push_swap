@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:09:58 by idonado       #+#    #+#                 */
-/*   Updated: 2021/09/01 22:48:41 by idonado       ########   odam.nl         */
+/*   Updated: 2021/09/02 13:23:51 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	reset_a(t_data *data)
 static int	smart_first_is_biggest(t_data *data, int temp_value)
 {
 	int		i;
-	int		first;
+	long	first;
 	t_stack	*temp;
 
 	temp = data->b;
@@ -96,6 +96,11 @@ static void	smart_rb(t_data *data)
 	}
 	return;
 }
+
+//static void	smart_ra(t_data *data, long from, long til)
+//{
+//	return ;
+//}
 
 void	swap_back_large(t_data *data)
 {
