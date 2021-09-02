@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:19:29 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 19:52:48 by idonado       ########   odam.nl         */
+/*   Updated: 2021/09/01 22:48:59 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,14 @@ typedef struct s_stack
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }				t_stack;
-typedef struct s_chunks
-{
-	int				amount;
-	struct s_chunks	*next;
-}				t_chunks;
 typedef struct s_data
 {
-	t_chunks	*chunks;
 	t_stack		*a;
 	t_stack		*b;
 	t_stack		*temp;
 	int			i;
 	int			b_count;
 	int			a_count;
-	int			chunk_count;
 	long		max;
 	long		one_fourth;
 	long		one_eleventh;
@@ -51,6 +44,8 @@ typedef struct s_data
 	int			rrbs;
 	int			moves;
 	int			amount_copy;
+	int			first_rotate;
+	int			lowest_sorted;
 }				t_data;
 int			num_check(char **argv, int args);
 int			dup_check(char **argv, int args);
@@ -65,17 +60,15 @@ void		add_to_stack(t_data *data, int value, char *stack);
 int			is_sorted(t_stack *node, t_data *data, char *stack);
 int			is_smallest(t_stack *node, int number, t_data *data, char *stack);
 int			is_biggest(t_stack *node, int number, t_data *data, char *stack);
-void		swap_back_loop(t_data *data);
-void		swap_back_loop_if_b(t_data *data, t_chunks *last);
-void		swap_back_loop_if_a(t_data *data, t_chunks *last);
-void		swap_chunk_loop_zero(t_data *data, long til);
-void		swap_chunk_loop(t_data *data, long from, long til);
-void		add_chunk(t_chunks	**chunks, int amount, t_data *data);
+void		swap_back_large(t_data *data);
+void		swap_chunk_loop_zero(t_data *data, long til, int first_rotate);
+void		swap_chunk_loop(t_data *data, long from, long til, int first_rotate);
 int			inbetween_amount(t_data *data, int min, int max);
 int			inbetween_amount_zero(t_data *data, int max);
 long		find_maximum(t_data *data);
 int			first_is_biggest(t_data *data);
-t_chunks	*get_last_chunk(t_data *data);
+int			last_is_biggest(t_data *data);
+
 //swaps
 void		sa(t_stack *node);
 void		sb(t_stack *node);

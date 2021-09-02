@@ -6,10 +6,11 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/22 14:30:22 by idonado       #+#    #+#                 */
-/*   Updated: 2021/08/26 20:01:47 by idonado       ########   odam.nl         */
+/*   Updated: 2021/09/01 21:20:14 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "get_next_line.h"
 
 static size_t	new_line_found(char **line, char *buffer, size_t size)
@@ -113,7 +114,7 @@ int	get_next_line(int fd, char **line)
 	int			is_buffer;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0 || \
-	line == NULL || fd > OPEN_MAX)
+	line == NULL || fd > FOPEN_MAX)
 		return (-1);
 	*line = ft_strdup("");
 	if (*line == NULL)
