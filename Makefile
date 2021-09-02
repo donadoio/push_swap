@@ -15,7 +15,8 @@ SRC = 	main.c\
 		swap_hundred.c\
 		swap_five_hundred.c\
 		swap_large_a.c\
-		swap_large_b.c
+		swap_large_b.c\
+		swap_large_c.c
 
 SRC_MAP = srcs/
 
@@ -23,7 +24,7 @@ SRCS = $(addprefix $(SRC_MAP), $(SRC))
 
 HDRS = -I includes/ -I libft/hdrs
 
-FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+FLAGS = -Wall -Werror -Wextra -g
 
 OBJS=$(SRCS:.c=.o)
 

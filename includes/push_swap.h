@@ -6,7 +6,7 @@
 /*   By: idonado <idonado@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 17:19:29 by idonado       #+#    #+#                 */
-/*   Updated: 2021/09/02 13:23:15 by idonado       ########   odam.nl         */
+/*   Updated: 2021/09/02 14:27:35 by idonado       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ typedef struct s_data
 	t_stack		*b;
 	t_stack		*temp;
 	int			i;
+	int			ra_count;
+	int			rra_count;
+	int			rb_count;
+	int			rrb_count;
+	int			trigger;
 	int			b_count;
 	int			a_count;
 	long		max;
@@ -61,8 +66,11 @@ int			is_sorted(t_stack *node, t_data *data, char *stack);
 int			is_smallest(t_stack *node, int number, t_data *data, char *stack);
 int			is_biggest(t_stack *node, int number, t_data *data, char *stack);
 void		swap_back_large(t_data *data);
-void		swap_chunk_loop_zero(t_data *data, long til, int first_rotate);
-void		swap_chunk_loop(t_data *data, long from, long til, int first_rotate);
+void		smart_ra(t_data *data, long from, long til);
+void		smart_rb(t_data *data);
+void		reset_a(t_data *data);
+void		swap_chunk_loop_zero(t_data *data, long til);
+void		swap_chunk_loop(t_data *data, long from, long til);
 int			inbetween_amount(t_data *data, int min, int max);
 int			inbetween_amount_zero(t_data *data, int max);
 long		find_maximum(t_data *data);
